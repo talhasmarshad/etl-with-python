@@ -1,11 +1,11 @@
 # Code for ETL operations on Country-GDP data
-from io import StringIO
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-import sqlite3
-from datetime import datetime
-from icecream import ic
+from io import StringIO #output to red karnay ky liay from JSON to simple
+import requests #server side ko read krny ky liay url
+from bs4 import BeautifulSoup #scrapping library (hit karo or data frame )
+import pandas as pd #data analysis
+import sqlite3 #databasewithpython
+from datetime import datetime #for logs
+from icecream import ic #
 
 
 def log_progress(message):
@@ -20,6 +20,7 @@ def extract(url, table_attribs):
     """ This function aims to extract the required
     information from the website and save it to a data frame. The
     function returns the data frame for further processing. """
+    #BeautifulSoup(requests.get(url).text, )
 
     soup = BeautifulSoup(requests.get(url).text, 'html.parser')
     table = soup.find('span', string=table_attribs).find_next('table')
