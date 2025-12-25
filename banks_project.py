@@ -20,7 +20,7 @@ def extract(url, table_attribs):
     """ This function aims to extract the required
     information from the website and save it to a data frame. The
     function returns the data frame for further processing. """
-    #BeautifulSoup(requests.get(url).text, )
+    #BeautifulSoup(requests.get(url).text,"html.parser" )
 
     soup = BeautifulSoup(requests.get(url).text, 'html.parser')
     table = soup.find('span', string=table_attribs).find_next('table')
